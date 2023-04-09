@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>播放 HLS 视频</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body>
+    <video id="my-video" controls></video>
+    <script>
+        if (Hls.isSupported()) {
+            var video = document.getElementById('my-video');
+            var hls = new Hls();
+            hls.loadSource('./videos/output.m3u8');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                // video.play();
+            });
+        }
+    </script>
+</body>
+
+</html>
